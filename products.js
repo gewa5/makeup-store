@@ -1,12 +1,40 @@
-// products.js
-
 const products = [
-    { id: 1, name: "عطر شانيل", price: "120 ريال", image: "images/chanel.jpg" },
-    { id: 2, name: "كريم أساس لوسيان", price: "80 ريال", image: "images/foundation.jpg" },
-    { id: 3, name: "لايتر شفاه", price: "45 ريال", image: "images/lipstick.jpg" },
-    { id: 4, name: "بودرة مضغوطة", price: "60 ريال", image: "images/powder.jpg" },
-    { id: 5, name: "عطر ديور", price: "150 ريال", image: "images/dior.jpg" },
-    { id: 6, name: "أيشادو ميكست", price: "70 ريال", image: "images/eyeshadow.jpg" }
+    {
+        id: 1,
+        name: "عطر عود أصيل",
+        price: "120 جنيه",
+        image: "images/oud.jpg"
+    },
+    {
+        id: 2,
+        name: "عطر مسك وورد",
+        price: "95 جنيه",
+        image: "images/musk.jpg"
+    },
+    {
+        id: 3,
+        name: "لايتر شفاه تركي",
+        price: "60 جنيه",
+        image: "images/lipstick.jpg"
+    },
+    {
+        id: 4,
+        name: "بودرة وجه كورية",
+        price: "80 جنيه",
+        image: "images/perfume.jpg"
+    },
+    {
+        id: 5,
+        name: "علبة هدايا تجميل",
+        price: "200 جنيه",
+        image: "images/giftbox.jpg"
+    },
+    {
+        id: 6,
+        name: "أيشادو 12 لون",
+        price: "110 جنيه",
+        image: "images/eyeshadow.jpg"
+    }
 ];
 
 function displayProducts(products) {
@@ -18,14 +46,18 @@ function displayProducts(products) {
                 <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>${product.price}</p>
-                <button class="add-to-cart" onclick="addToCart('${product.name}')">أضف للسلة</button>
+                <button class="order-btn" onclick="orderProduct('${product.name}', '${product.price}')">
+                    اطلبي الآن 💬
+                </button>
             </div>
         `;
     });
 }
 
-function addToCart(productName) {
-    alert(`تم إضافة "${productName}" إلى السلة`);
+function orderProduct(name, price) {
+    const message = `أريد طلب: ${name} - السعر: ${price}. من متجر جوا`;
+    const whatsappURL = `https://wa.me/201000000000?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
 }
 
 function filterProducts() {
@@ -34,5 +66,5 @@ function filterProducts() {
     displayProducts(filtered);
 }
 
-// عرض المنتجات عند التحميل
+// عرض المنتجات
 displayProducts(products);
