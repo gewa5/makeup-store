@@ -3,13 +3,13 @@ const products = [
         id: 1,
         name: "عطر عود أصيل",
         price: "120 جنيه",
-        image: "images/oud.jpg"
+        image: "oud.jpg"
     },
     {
         id: 2,
         name: "عطر مسك وورد",
         price: "95 جنيه",
-        image: "images/musk.jpg"
+        image: "musk.jpg"
     },
     {
         id: 3,
